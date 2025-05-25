@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il mio Viaggio a Londra</title>
     <!--Ho provato ad aggiungere un icona nella tab bar vicino al titolo, ma non ci sono riuscito...-->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="./img/favicon.ico">
 </head>
 <body>
@@ -12,40 +13,31 @@
     <!--SEZIONE HEADER-->
     <header>
         <h1>Il mio Viaggio a Londra</h1>
-        <img src="./img/pexels-bill-emrich-230794-0.jpg" alt="">
-        <img src="./img/pexels-bill-emrich-230794-1.jpg" alt="">
-        <img src="./img/pexels-bill-emrich-230794-2.jpg" alt="">
-        <hr>
+        <div class="header-images">
+            <img src="./img/pexels-bill-emrich-230794-0.jpg" alt="London skyline with River Thames">
+            <img src="./img/pexels-bill-emrich-230794-1.jpg" alt="Street view in London with red bus">
+            <img src="./img/pexels-bill-emrich-230794-2.jpg" alt="London Eye and Big Ben">
+        </div>
     </header>
 
     <!--SEZIONE MAIN-->
     <main>
         <!--SEZIONE SPESE-->
-        <div class="expenses-section">
+        <section id="expenses">
             <h2>Le mie spese</h2>
             <table>
                 <thead>
                     <tr>
-                        <td><strong>Numero</strong></td>
-                        <td><strong>Descrizione</strong></td>
-                        <td><strong>Costo</strong></td>
+                        <th>Numero</th>
+                        <th>Descrizione</th>
+                        <th>Costo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Biglietto Aereo</td>
-                        <td>120&euro;</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Biglietto Aereo</td>
-                        <td>120&euro;</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Biglietto Aereo</td>
-                        <td>120&euro;</td>
+                        <td>Biglietto Aereo (x3)</td>
+                        <td>360&euro;</td>
                     </tr>
                     <tr>
                         <td colspan="2">Totale</td>
@@ -53,11 +45,10 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <hr>
+        </section>
 
         <!--SEZIONE COSE DA FARE-->
-        <div class="to-do-section">
+        <section id="todo">
             <h3>Cose da fare</h3>
             <ul>
                 <li>Visitare la Tower of London &#x2717;</li>
@@ -65,10 +56,9 @@
                 <li>Ascoltare un artista di strada a Covent Garden &#10003;</li>
                 <li>Mangiare il tipico Fish and Chips inglese &#x2717;</li>
             </ul>
-        </div>
-        <hr>
+        </section>
         <!--SEZIONE INFO-->
-        <div class="tips-section">
+        <section id="info">
             <h3>Info utili:</h3>
             <ol>
                 <li>
@@ -94,15 +84,14 @@
                     </ul>
                 </li>
             </ol>
-        </div>
-        <hr>
+        </section>
 
         <!--SEZIONE FOTO-->
-        <div class="photo-section">
+        <section id="photos">
             <h3>Le foto</h3>
             <img src="./img/london-400x400-compressor_0.jpg" alt="Millennium Bridge">
-            <img src="img/evening-tower-bridge-and-river-thames-london_u-L-P2QVZJ0.jpg" alt="Tower Bridge">
-        </div>
+            <img src="./img/evening-tower-bridge-and-river-thames-london_u-L-P2QVZJ0.jpg" alt="Tower Bridge at dusk with River Thames">
+        </section>
         
     </main>
 </body>
