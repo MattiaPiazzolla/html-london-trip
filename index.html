@@ -23,7 +23,7 @@
     <!--SEZIONE MAIN-->
     <main>
         <!--SEZIONE SPESE-->
-        <section id="expenses">
+        <section id="expenses" class="hidden-on-scroll">
             <h2>Le mie spese</h2>
             <table>
                 <thead>
@@ -48,7 +48,7 @@
         </section>
 
         <!--SEZIONE COSE DA FARE-->
-        <section id="todo">
+        <section id="todo" class="hidden-on-scroll">
             <h3>Cose da fare</h3>
             <ul>
                 <li>Visitare la Tower of London &#x2717;</li>
@@ -58,7 +58,7 @@
             </ul>
         </section>
         <!--SEZIONE INFO-->
-        <section id="info">
+        <section id="info" class="hidden-on-scroll">
             <h3>Info utili:</h3>
             <ol>
                 <li>
@@ -87,12 +87,19 @@
         </section>
 
         <!--SEZIONE FOTO-->
-        <section id="photos">
+        <section id="photos" class="hidden-on-scroll">
             <h3>Le foto</h3>
             <img src="./img/london-400x400-compressor_0.jpg" alt="Millennium Bridge">
             <img src="./img/evening-tower-bridge-and-river-thames-london_u-L-P2QVZJ0.jpg" alt="Tower Bridge at dusk with River Thames">
         </section>
         
     </main>
+    <script src="./js/main.js" defer></script>
+
+    <div id="imageModal" class="modal">
+        <span class="modal-close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
 </body>
 </html>
