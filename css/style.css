@@ -3,7 +3,9 @@
 /* Body Styling */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #ffffff;
+    /* background-color: #ffffff; /* Old background */
+    background: linear-gradient(120deg, #e0e5ec 0%, #f0f2f5 100%); /* New gradient background */
+    min-height: 100vh; /* Ensure gradient covers full viewport height */
     color: #1d1d1f;
     margin: 0 auto; /* Center content and remove default browser margins */
     line-height: 1.5;
@@ -88,54 +90,50 @@ header {
 #expenses th {
     text-align: left;
     padding: 12px 15px;
-    border-bottom: 1px solid #ddd; /* Light grey border */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border for glassmorphism */
     font-weight: 600; /* Bold header text */
 }
 
 /* Table Cells (#expenses tbody td) */
 #expenses tbody td {
     padding: 12px 15px;
-    border-bottom: 1px solid #eee; /* Very light grey for row separation */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border for glassmorphism */
     text-align: left;
 }
 
 /* Table Body Rows (#expenses tbody tr) - Hover effect */
 #expenses tbody tr:hover {
-    background-color: #f5f5f7; /* Light grey background on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter/more opaque on hover for table rows */
 }
 
 /* Total Row (#expenses tbody tr:last-child td) */
 #expenses tbody tr:last-child td {
     font-weight: bold;
-    border-top: 1px solid #ddd; /* Separator for the total row */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border for glassmorphism */
 }
 
-/* General Section Styling for #expenses, #todo, #info, #photos */
+/* General Section Styling for #expenses, #todo, #info, #photos - Glassmorphism */
 #expenses,
 #todo,
 #info,
 #photos {
     margin-bottom: 2em;
     padding: 1.5em;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Initial subtle shadow */
-    /* Transitions:
-       - opacity (0.6s) for scroll-in effect
-       - transform (0.6s initially for scroll-in, 0.3s for hover)
-       - box-shadow (0.3s) for hover effect
-       The scroll-in transform is handled by .hidden-on-scroll initially.
-       The hover transform needs to be quick.
-    */
+    background-color: rgba(255, 255, 255, 0.55); /* Semi-transparent white background */
+    -webkit-backdrop-filter: blur(10px) saturate(150%); /* For Safari */
+    backdrop-filter: blur(10px) saturate(150%); /* Frosted glass effect with saturation */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle light border */
+    border-radius: 8px; /* Keep rounded corners */
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1); /* Diffuse shadow for "lifted" glass */
     transition: opacity 0.6s ease-out, 
-                transform 0.3s ease-out, /* For hover transform */
-                box-shadow 0.3s ease-out;
+                transform 0.3s ease-out, 
+                box-shadow 0.3s ease-out,
+                background-color 0.3s ease-out; /* Added background-color transition */
 }
 
 .hidden-on-scroll {
     opacity: 0;
     transform: translateY(30px); /* Initial state for scroll-in */
-    /* This transform will transition to translateY(0) when class is removed */
 }
 
 /* Hover effect for section cards */
@@ -144,7 +142,8 @@ header {
 #info:hover,
 #photos:hover {
     transform: translateY(-3px); /* Slight lift */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* More prominent shadow */
+    box-shadow: 0 10px 28px 0 rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow on hover */
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly more opaque on hover */
 }
 
 
@@ -156,9 +155,7 @@ header {
 
 #todo ul li {
     padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    /* display: flex; /* Uncomment if span wrappers are added around text/marks */
-    /* align-items: center; /* Uncomment if span wrappers are added */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Subtle light border for glassmorphism */
 }
 
 #todo ul li:last-child {
@@ -173,13 +170,13 @@ header {
 
 /* "Info utili" (Useful Info) Styling (#info) */
 #info > ol {
-    list-style-position: inside; /* Cleaner look for numbered lists */
-    padding-left: 0; /* Reset padding as 'inside' handles it */
+    list-style-position: inside; 
+    padding-left: 0; 
 }
 
 #info ol ul {
-    list-style: disc; /* Standard disc for nested lists */
-    padding-left: 20px; /* Indent nested lists */
+    list-style: disc; 
+    padding-left: 20px; 
     margin-top: 0.5em;
 }
 
@@ -188,47 +185,48 @@ header {
 }
 
 #info li strong {
-    font-weight: 600; /* Ensure strong tags are sufficiently bold */
+    font-weight: 600; 
 }
 
 /* "Le foto" (Photos Section) Styling (#photos) */
 #photos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Distribute space around items */
-    gap: 15px; /* Space between images */
+    justify-content: space-around; 
+    gap: 15px; 
+    /* The #photos section itself is now glassmorphic. Inner images are not. */
 }
 
 #photos img {
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Keep this for images if they don't adopt glassmorphism */
     border-radius: 8px;
-    width: calc(50% - 10px); /* For 2 images per row, accounting for gap. Adjust as needed. */
+    width: calc(50% - 10px); 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    cursor: pointer; /* Indicate images are clickable */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover */
+    cursor: pointer; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 #photos img:hover {
-    transform: scale(1.03); /* Slightly enlarge image on hover */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Enhance shadow on hover */
+    transform: scale(1.03); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
 
 /* Modal (Lightbox) Styles */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if content is too large */
-    background-color: rgba(0,0,0,0.85);
-    padding-top: 60px; /* Space from top */
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.85); /* Dark overlay for modal, good contrast for glass */
+    padding-top: 60px; 
 }
 
-.modal.modal-open { /* Class to trigger display and animation */
+.modal.modal-open { 
     display: block;
     animation-name: fadeIn;
     animation-duration: 0.4s;
@@ -238,15 +236,16 @@ header {
     margin: auto;
     display: block;
     max-width: 80%;
-    max-height: 80vh; /* Max height relative to viewport height */
+    max-height: 80vh; 
     border-radius: 8px;
     animation-name: zoomIn;
     animation-duration: 0.4s;
+    /* Consider if modal content itself should be glassmorphic, or just the page sections */
 }
 
 .modal-close-btn {
     position: absolute;
-    top: 20px; /* Adjusted for better spacing */
+    top: 20px; 
     right: 35px;
     color: #f1f1f1;
     font-size: 40px;
@@ -279,6 +278,6 @@ header {
 }
 
 @keyframes zoomIn {
-    from { transform: scale(0.8); } /* Start slightly smaller for a smoother zoom */
+    from { transform: scale(0.8); } 
     to { transform: scale(1); }
 }
